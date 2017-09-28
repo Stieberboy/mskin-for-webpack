@@ -1,0 +1,26 @@
+<div class="form-w3layouts">
+	<!-- page start-->
+	<!-- page start-->
+	<div class="row">
+		<div class="col-lg-6">
+			<section class="panel">
+				<header class="panel-heading">Besucher</header>
+				<div class="panel-body">
+					<div class="chart_agile_right">
+                        <div class="morris-chart" id="graph4"></div>
+                        <script>
+                            Morris.Donut({
+                              element: 'graph4',
+                              data: [
+                                {value: 50, label: 'Profil',    formatted: '125 Klicks' },
+                                {value: 50, label: 'Medien ',   formatted: '125 Klicks' }
+                              ],
+                              formatter: function (x, data) { return data.formatted; }
+                            });
+                        </script>
+                    </div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
