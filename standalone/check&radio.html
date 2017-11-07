@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<script src="src/jquery-3.1.0.js"></script>
+
+		<script src="src/evt-engine2-handling.js"></script>
+		<script src="src/evt-engine2-controller.js"></script>
+
+		<script src="src/modern-forms.js"></script>
+		<script src="src/modern-forms.lang-de.js"></script>
+		<script src="src/modern-forms.object.js"></script>
+		<script src="src/modern-forms.button.js"></script>
+		<script src="src/modern-forms.checkbox.js"></script>
+		<script src="src/modern-forms.radioBtn.js"></script>
+
+		<link rel="stylesheet" href="src/modern-forms2.css">
+	</head>
+	<body>
+		<div>
+			<input type="checkbox" class="mskin-object mskin-checkbox" name="checkbox-demo" id="checkbox-demo-1">
+			<label for="checkbox-demo-1">Auswahl</label>
+			<!--<input type="checkbox" class="mskin-object mskin-checkbox" name="checkbox-demo2" id="checkbox-demo-2">
+			<label for="checkbox-demo-2">Auswahl</label>
+			<input type="checkbox" class="mskin-object mskin-checkbox" name="checkbox-demo3" id="checkbox-demo-3">
+			<label for="checkbox-demo-3">Auswahl</label>-->
+		</div>
+		<div class="box">
+			<div>
+				<input class="mskin-object mskin-radio" type="radio" name="radio-demo" id="radio-demo_ja" value="Ja">
+				<label for="radio-demo_ja" class="inline-label">Ja</label>
+			</div>
+			<div>
+				<input class="mskin-object mskin-radio" type="radio" name="radio-demo" id="radio-demo_nein" value="Nein">
+				<label for="radio-demo_nein" class="inline-label">Nein</label>
+			</div>
+		</div>
+	</body>
+	<!-- <script>
+		var eachBox = {};
+		$( document ).ready( function( ) {
+			$( ".mskin-checkbox" ).each( function( index, element ) {
+				var tempCheckBox = new mskinCheckbox( element );
+
+				if( element.hasAttribute( "id" ) ) {
+					eachBox[ element.getAttribute( "id" ) ] = tempCheckBox;
+				}
+				else {
+					var numId = -1;
+					do {
+						numId++;
+					}
+					while( !eachBox.hasOwnProperty( numId ) );
+					eachBox[numId] = tempCheckBox;
+				}
+			});
+		});
+	</script> -->
+</html>

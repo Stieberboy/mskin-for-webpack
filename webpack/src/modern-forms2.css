@@ -1,0 +1,856 @@
+/* line 3, ../sass/modern-forms2.scss */
+body {
+  background-color: gray;
+}
+/* line 6, ../sass/modern-forms2.scss */
+body * {
+  font-family: 'Roboto', sans-serif;
+  transform: all ease .5s;
+}
+
+/*
+    New Styles
+*/
+/* line 16, ../sass/modern-forms2.scss */
+.mskin-object {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 26px 5px 5px 5px;
+}
+/* line 22, ../sass/modern-forms2.scss */
+.mskin-object > * {
+  transition: all ease .3s;
+}
+
+/* line 27, ../sass/modern-forms2.scss */
+.mskin-datepicker {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px 5px 5px 5px;
+  /* Pop Up */
+  /* Focus / has Value */
+}
+/* line 33, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-input {
+  width: 100%;
+  height: 25px;
+  border: 0px solid whitesmoke;
+  border-width: 0 0 2px 0;
+  background-color: transparent;
+  padding-left: 5px;
+  z-index: 2;
+  color: transparent;
+  outline: none;
+}
+/* line 45, ../sass/modern-forms2.scss */
+.mskin-datepicker border {
+  display: block;
+  height: 2px;
+  width: 0%;
+  margin-top: -2px;
+  margin-left: 50%;
+  margin-right: 50%;
+  z-index: 3;
+  background-color: #26c3b6;
+}
+/* line 56, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-textbox-placeholder {
+  margin: -22px 0px;
+  color: whitesmoke;
+  z-index: 1;
+}
+/* line 64, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container {
+  /* width: 0; */
+  max-width: 767px;
+  height: 0;
+  opacity: 0;
+  max-height: 350px;
+  margin-top: 30px;
+  position: absolute;
+  background-color: #26c3b6;
+  display: inline-flex;
+}
+/* line 75, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container.show {
+  /* width: 90vw; */
+  height: 90vh;
+  opacity: 1;
+}
+/* line 81, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container > * {
+  /*width: 50%;*/
+  min-width: 350px;
+  padding: 10px 15px;
+}
+/* line 87, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container p {
+  margin: 0;
+}
+/* line 91, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info {
+  display: flex;
+  flex-direction: column;
+}
+/* line 95, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-header {
+  text-align: center;
+}
+/* line 98, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-header .mskin-dp-currentdate {
+  text-align: center;
+}
+/* line 101, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-header .mskin-dp-currentdate .mskin-dp-cd-day {
+  font-size: 2rem;
+  color: whitesmoke;
+  font-weight: bold;
+}
+/* line 107, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-header .mskin-dp-currentdate .mskin-dp-cd-date {
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.5);
+}
+/* line 111, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-header .mskin-dp-currentdate .mskin-dp-cd-date .mskin-dp-th {
+  font-size: 10px;
+  margin-left: -5px;
+  vertical-align: text-top;
+}
+/* line 120, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul {
+  list-style-type: none;
+}
+/* line 123, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li {
+  color: rgba(0, 0, 0, 0.5);
+}
+/* line 126, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li:before {
+  content: ">";
+  margin: 0px -15px;
+  position: absolute;
+  transform: rotate(0deg);
+  color: transparent;
+  transition: all ease .5s;
+}
+/* line 135, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li.open:before {
+  transform: rotate(45deg);
+}
+/* line 139, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li:hover:before, .mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li.open:before {
+  color: rgba(0, 0, 0, 0.5);
+}
+/* line 145, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li.open .mskin-dp-i-list-i-info {
+  height: auto;
+  opacity: 1;
+}
+/* line 151, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li .mskin-dp-i-list-i-info {
+  height: 0px;
+  display: flex;
+  overflow: hidden;
+  opacity: 0;
+}
+/* line 157, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li .mskin-dp-i-list-i-info .mskin-dp-i-list-i-visitors {
+  text-align: right;
+}
+/* line 162, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li .mskin-dp-i-list-i-info {
+  height: 0px;
+  display: flex;
+  overflow: hidden;
+  opacity: 0;
+  font-size: .8rem;
+  margin-top: 1px;
+}
+/* line 170, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-list ul > li .mskin-dp-i-list-i-info > * {
+  width: 100%;
+}
+/* line 178, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender {
+  background-color: whitesmoke;
+}
+/* line 181, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* line 186, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month,
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-year {
+  width: 100%;
+  max-width: 190px;
+  padding: 0 0 15px 0;
+  display: flex;
+}
+/* line 193, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month span,
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-year span {
+  width: 100%;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* line 201, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month button,
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-year button {
+  background-color: transparent;
+  border: none;
+}
+/* line 205, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month button[job],
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-year button[job] {
+  color: gray;
+}
+/* line 208, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month button[job]:hover,
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-year button[job]:hover {
+  color: #26c3b6;
+}
+/* line 215, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month {
+  padding: 0;
+}
+/* line 220, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head div.mskin-dp-year span,
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head div.mskin-dp-year button[job] {
+  font-size: 3rem;
+  color: rgba(128, 128, 128, 0.5);
+}
+/* line 228, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 232, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 236, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days day {
+  width: calc( 100% / 7 - 15px );
+  padding: 7.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+/* line 244, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days day:hover {
+  color: #26c3b6;
+}
+/* line 248, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days day[today] {
+  color: #26c3b6;
+}
+/* line 251, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days day[today]:hover {
+  color: #36716c;
+}
+/* line 255, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days day[today]:before {
+  border: 2px solid #26c3b6;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(38, 195, 182, 0.2);
+  color: #26c3b6;
+}
+/* line 269, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days day[icon]:before {
+  content: "";
+  width: 6px;
+  height: 9px;
+  position: absolute;
+  margin: 9.5px 0 0 9.5px;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+/* line 281, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-days day[icon][icon=fav]:before {
+  background-image: url(./modern-forms.icon.fav-ball.png);
+}
+/* line 292, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-input:focus ~ border, .mskin-datepicker.has-value border {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+/* line 299, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-input:focus ~ label.mskin-textbox-placeholder, .mskin-datepicker.has-value label.mskin-textbox-placeholder {
+  margin-top: -48px;
+  margin-left: 5px;
+  color: #26c3b6;
+}
+/* line 307, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-value.has-error .mskin-object-input::placeholder {
+  color: #a15454;
+}
+/* line 314, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-value.has-info .mskin-object-header ~ label.mskin-textbox-placeholder, .mskin-datepicker.has-value.has-error .mskin-object-header ~ label.mskin-textbox-placeholder {
+  color: gray;
+}
+/* line 318, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-value.has-info .mskin-object-header ~ .mskin-datepicker-container, .mskin-datepicker.has-value.has-error .mskin-object-header ~ .mskin-datepicker-container {
+  margin-top: 51px;
+}
+/* line 324, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-input:focus, .mskin-datepicker.has-value .mskin-object-input {
+  color: whitesmoke;
+}
+
+/* line 332, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-info .mskin-object-header {
+  margin-top: 0px;
+  opacity: 1;
+}
+/* line 337, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-info .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.info-icon-container {
+  display: flex;
+}
+/* line 344, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-error .mskin-object-header {
+  opacity: 1;
+}
+/* line 348, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-error .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.error-icon-container {
+  display: flex;
+}
+/* line 355, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-error .mskin-object-header {
+  background-color: rgba(195, 38, 38, 0.49);
+}
+/* line 359, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-value.has-info .mskin-object-header {
+  background-color: rgba(195, 191, 38, 0.49);
+}
+/* line 363, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header {
+  /* position: absolute; */
+  height: 26px;
+  width: 100%;
+  /*background-color: #26c3b6;*/
+  padding-right: 5px;
+  margin-top: -0px;
+  opacity: 0;
+}
+/* line 372, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header ~ .mskin-datepicker-container {
+  margin-top: 49px;
+}
+/* line 376, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+/* line 382, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-i-content {
+  height: 80%;
+}
+/* line 386, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item {
+  display: none;
+  justify-content: flex-end;
+  padding-top: 1px;
+  margin: 2.5px;
+}
+/* line 402, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body mskin-dp-c-b-days {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 407, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-week {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  width: 100%;
+}
+/* line 413, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-week .mskin-dp-c-b-week-name {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+/* line 420, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-week .mskin-dp-c-b-week-name[today] {
+  border-bottom: 2px solid #26c3b6;
+}
+/* line 424, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body .mskin-dp-c-b-week .mskin-dp-c-b-week-name .mskin-dp-week-name-last {
+  display: none;
+}
+/* line 430, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3.5px;
+}
+/* line 435, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day[planed]:after {
+  content: "";
+  display: block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #26c3b6;
+}
+/* line 444, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day[planed] {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3.5px;
+}
+/* line 450, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day[first-month], .mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day[last-month] {
+  color: rgba(128, 128, 128, 0.5);
+}
+/* line 455, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day .mskin-dp-c-b-d-color {
+  height: 3.5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* background-color: #f21b1b; */
+}
+/* line 464, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day .mskin-dp-c-b-d-color.part-of-three dot:nth-child(1), .mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day .mskin-dp-c-b-d-color.part-of-three dot:nth-child(3) {
+  margin-top: -2px !important;
+  height: 0px !important;
+  /* position: absolute; */
+  margin: 0px 0px;
+}
+/* line 473, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day .mskin-dp-c-b-d-color dot[color] {
+  width: 3.5px;
+  height: 3.5px;
+  min-height: 3.5px;
+  border-radius: 50%;
+  margin: 0 1.5px;
+}
+/* line 480, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day .mskin-dp-c-b-d-color dot[color][color=red] {
+  background-color: #c32626;
+}
+/* line 484, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day .mskin-dp-c-b-d-color dot[color][color=yellow] {
+  border: 1px solid #c3be26;
+  background-color: yellow;
+  width: 1.5px !important;
+  max-height: 2px !important;
+  min-height: 2px !important;
+}
+/* line 492, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-body day .mskin-dp-c-b-d-color dot[color][color=turkies] {
+  background-color: #26c3b6;
+}
+
+/* line 502, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-info .mskin-dp-i-header .mskin-dp-currentdate .mskin-dp-cd-date .mskin-dp-th {
+  font-size: 10px;
+  margin-left: -5px;
+  vertical-align: text-top;
+}
+
+/* line 508, ../sass/modern-forms2.scss */
+.mskin-dp-c-b-d-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+}
+
+/* line 515, ../sass/modern-forms2.scss */
+.mskin-dp-c-b-days {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+/* line 521, ../sass/modern-forms2.scss */
+.mskin-dp-c-b-d-container.old-month {
+  opacity: 0;
+  margin-left: -100%;
+}
+
+/* line 526, ../sass/modern-forms2.scss */
+.mskin-dp-c-b-d-container.next-month {
+  opacity: 1;
+}
+
+/* line 530, ../sass/modern-forms2.scss */
+body {
+  /*    .slide-1-2 {
+          > {
+              :nth-child(1) {
+                  opacity: 0 !important;
+                  margin-left: -100% !important;
+              }
+  
+              :not( :nth-child( 1 ) ) {
+                  opacity: 0 !important;
+              }
+  
+              :nth-child(2) {
+                  opacity: 1 !important;
+              }
+  
+              * {
+                  width: 100% !important;
+                  transition: all ease .5s !important;
+              }
+          }
+      }*/
+}
+/* line 531, ../sass/modern-forms2.scss */
+body .slide-prepair {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  overflow: hidden !important;
+  flex-wrap: initial !important;
+  /*        > * {
+              transition: all ease .5s !important;
+          }*/
+}
+
+/* line 565, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month span, .mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-year span {
+  text-align: center;
+  height: auto;
+}
+
+/* line 570, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-month .slide-prepair {
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 577, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-datepicker-container .mskin-dp-calender .mskin-dp-c-head .mskin-dp-year .slide-prepair {
+  height: 58px;
+}
+
+/* line 581, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.error-icon-container > i {
+  color: #d70000;
+  text-shadow: 0px 0px 7px #680000;
+}
+
+/* line 586, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.info-icon-container > i {
+  color: #d3cd00;
+  text-shadow: 0px 0px 7px #656800;
+}
+
+/* line 591, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.info-icon-container,
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.error-icon-container {
+  display: none;
+}
+
+/* line 596, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-info .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.info-icon-container,
+.mskin-datepicker.has-error .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.error-icon-container {
+  display: block;
+}
+
+/*
+.mskin-datepicker.has-info .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item .mskin-mode-massage {
+	opacity: 0;
+	display: none;
+}
+*/
+/* line 608, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item > i ~ .mskin-mode-massage {
+  position: absolute;
+  margin-top: -25.5px;
+  margin-left: 32px;
+  width: 0px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* line 617, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.info-icon-container > i ~ .mskin-mode-massage {
+  background-color: rgba(195, 191, 38, 0.5);
+}
+
+/* line 621, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item.error-icon-container > i ~ .mskin-mode-massage {
+  background-color: rgba(195, 38, 38, 0.5);
+}
+
+/* line 625, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item > i ~ .mskin-mode-massage .mskin-mode-m-container {
+  padding: 6px 15px;
+  width: 220px;
+  min-height: 40px;
+}
+
+/* line 634, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item .mskin-mode-massage .mskin-m-m-title {
+  font-size: 1rem;
+}
+
+/* line 638, ../sass/modern-forms2.scss */
+.mskin-datepicker .mskin-object-header .mskin-obj-h-notification .mskin-obj-h-n-item .mskin-mode-massage .mskin-m-m-text {
+  font-size: .75rem;
+  margin: 5px 0 0 0;
+}
+
+/* line 643, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-error .mskin-object-input:focus ~ border, .mskin-datepicker.has-error border {
+  background-color: rgba(131, 0, 0, 0.63);
+}
+
+/* line 647, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-info .mskin-object-input:focus ~ border, .mskin-datepicker.has-info border {
+  background-color: rgba(131, 131, 0, 0.63);
+}
+
+/* line 651, ../sass/modern-forms2.scss */
+.mskin-datepicker.has-info .mskin-object-input:focus ~ .mskin-textbox-placeholder {
+  color: #d3cd00;
+}
+
+/* Textbox */
+/* line 657, ../sass/modern-forms2.scss */
+.mskin-object {
+  /* Focus / has Value */
+}
+/* line 658, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input {
+  width: 100%;
+  height: 25px;
+  border: 0px solid whitesmoke;
+  border-width: 0 0 2px 0;
+  background-color: transparent;
+  padding-left: 5px;
+  z-index: 2;
+  color: transparent;
+  outline: none;
+  width: calc( 100% - 1px );
+}
+/* line 670, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input ~ .mskin-textbox-cancle {
+  width: 29px;
+  height: 29px;
+  display: none;
+  height: 10px;
+  width: 10px;
+  margin-left: -26px;
+  padding: 3px 4px 5px 4px;
+  text-align: center;
+  font-size: .7rem;
+  border-radius: 50%;
+  border: 1.2px solid transparent;
+  z-index: 3;
+}
+/* line 685, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input ~ .mskin-textbox-cancle:after {
+  content: "X";
+  color: whitesmoke;
+}
+/* line 690, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input ~ .mskin-textbox-cancle:hover {
+  background-color: #b8b8b8;
+}
+/* line 693, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input ~ .mskin-textbox-cancle:hover:after {
+  color: grey;
+}
+/* line 699, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input ~ border {
+  display: block;
+  height: 2px;
+  width: 0%;
+  margin-top: -2px;
+  margin-left: 50%;
+  margin-right: 50%;
+  z-index: 3;
+  background-color: #26c3b6;
+}
+/* line 710, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input ~ .mskin-textbox-placeholder {
+  margin: -22px 0px;
+  color: whitesmoke;
+  z-index: 1;
+}
+/* line 720, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input:focus ~ border, .mskin-object.has-value border {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+/* line 727, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input:focus ~ label.mskin-textbox-placeholder, .mskin-object.has-value label.mskin-textbox-placeholder {
+  margin-top: -48px;
+  margin-left: 5px;
+  color: #26c3b6;
+}
+/* line 735, ../sass/modern-forms2.scss */
+.mskin-object.has-value .mskin-object-input ~ .mskin-textbox-cancle {
+  display: inherit;
+}
+/* line 738, ../sass/modern-forms2.scss */
+.mskin-object.has-value.has-error .mskin-object-input::placeholder {
+  color: #a15454;
+}
+/* line 745, ../sass/modern-forms2.scss */
+.mskin-object.has-value.has-info .mskin-object-header ~ label.mskin-textbox-placeholder, .mskin-object.has-value.has-error .mskin-object-header ~ label.mskin-textbox-placeholder {
+  color: gray;
+}
+/* line 749, ../sass/modern-forms2.scss */
+.mskin-object.has-value.has-info .mskin-object-header ~ .mskin-datepicker-container, .mskin-object.has-value.has-error .mskin-object-header ~ .mskin-datepicker-container {
+  margin-top: 51px;
+}
+/* line 755, ../sass/modern-forms2.scss */
+.mskin-object .mskin-object-input:focus, .mskin-object.has-value .mskin-object-input {
+  color: whitesmoke;
+}
+
+/*.mskin-textbox {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 20px 5px 5px 5px;
+
+	> * {
+		transition: all ease .3s;
+	}
+
+	msking-textbox-input {
+		width: 100%;
+		height: 25px;
+		border: 0px solid gray;
+		border-width: 0 0 2px 0;
+		background-color: transparent;
+		padding-left: 5px;
+		z-index: 2;
+		color: transparent;
+		outline: none;
+	}
+}*/
+/*.mskin-textbox .
+.mskin-textbox border {
+	display: block;
+	height: 2px;
+	width: 0%;
+	margin-top: -2px;
+	margin-left: 50%;
+	z-index: 3;
+	background-color: #26c3b6;
+}
+.mskin-textbox .mskin-textbox-placeholder {
+	margin: 3px 5px;
+	color: gray;
+	z-index: 1;
+}
+.mskin-textbox .msking-textbox-input:focus ~ border, .mskin-textbox2.has-value border {
+	width: 100%;
+	margin-left: 0;
+	width: 100%;
+}
+.mskin-textbox .msking-textbox-input:focus ~ label.mskin-textbox-placeholder, .mskin-textbox2.has-value label.mskin-textbox-placeholder {
+	margin-top: -19px;
+	color: #26c3b6;
+}
+.mskin-textbox .msking-textbox-input:focus, .mskin-textbox2.has-value .msking-textbox-input {
+	color: gray;
+}*/
+/* Buttons */
+/* line 819, ../sass/modern-forms2.scss */
+button.mskin-object.mskin-button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 8px;
+}
+/* line 824, ../sass/modern-forms2.scss */
+button.mskin-object.mskin-button:hover {
+  border: none;
+  background-color: rgba(95, 254, 255, 0.5);
+  padding: 8px;
+}
+/* line 830, ../sass/modern-forms2.scss */
+button.mskin-object.mskin-button:active {
+  border: none;
+  background-color: #5ffeff;
+  padding: 8px;
+}
+
+/* Radio and Checkbox */
+/* line 839, ../sass/modern-forms2.scss */
+input.mskin-object {
+  /* remove standard-styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  font-size: 1em;
+  width: 100%;
+  /* graceful degradation for ie8 */
+}
+/* line 850, ../sass/modern-forms2.scss */
+input.mskin-object.mskin-checkbox, input.mskin-object.mskin-radio {
+  width: auto;
+  float: left;
+  margin-right: .75em;
+  background: transparent;
+  border: none;
+}
+/* line 859, ../sass/modern-forms2.scss */
+input.mskin-object.mskin-checkbox:checked, input.mskin-object.mskin-checkbox:not(:checked), input.mskin-object.mskin-radio:checked, input.mskin-object.mskin-radio:not(:checked) {
+  background: transparent;
+  position: relative;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+/* line 870, ../sass/modern-forms2.scss */
+input.mskin-object.mskin-checkbox + label, input.mskin-object.mskin-radio + label {
+  cursor: pointer;
+}
+/* line 875, ../sass/modern-forms2.scss */
+input.mskin-object.mskin-checkbox:checked + label::before, input.mskin-object.mskin-checkbox:not(:checked) + label::before, input.mskin-object.mskin-radio:checked + label::before, input.mskin-object.mskin-radio:not(:checked) + label::before {
+  content: 'X';
+  color: white;
+  text-align: center;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  position: relative;
+  top: 4px;
+  border: 1px solid #bbb;
+  background: white;
+  margin-right: 1em;
+  box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+/* line 893, ../sass/modern-forms2.scss */
+input.mskin-object.mskin-checkbox:checked + label::before, input.mskin-object.mskin-radio:checked + label::before {
+  background: #26c3b6;
+}
