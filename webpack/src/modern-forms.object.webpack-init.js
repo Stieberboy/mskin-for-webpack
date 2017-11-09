@@ -1,5 +1,6 @@
 import { MskinObjectConfig } from "./modern-forms.object.config";
 import { MskinInput } from "./modern-forms.input";
+import { MskinButton } from "./modern-forms.button";
 
 export class MskinObjectInitor {
     constructor( targetContainer=document ) {

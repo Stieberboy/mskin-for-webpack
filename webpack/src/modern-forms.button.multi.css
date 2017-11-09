@@ -1,0 +1,49 @@
+/* line 1, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button {
+  display: inline-flex;
+  padding: 0;
+  flex-wrap: nowrap;
+}
+/* line 6, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button .mskin-m-b-mask {
+  width: 0%;
+  padding: .5rem .5rem;
+  overflow: hidden;
+  text-align: center;
+  color: transparent;
+  background-color: #607D8B;
+  display: flex;
+  justify-content: center;
+}
+/* line 16, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button .mskin-m-b-mask:nth-child(1) {
+  width: 100%;
+  color: black;
+  background: #E57373;
+}
+/* line 28, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button.unlock .mskin-m-b-mask:nth-child(1) {
+  width: 0%;
+  color: transparent;
+}
+/* line 33, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button.unlock .mskin-m-b-mask:nth-child(2) {
+  width: 100%;
+  color: #d8dfe2;
+}
+/* line 41, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button.is-queston:not(.unlock) .mskin-m-b-mask:nth-child(2) {
+  width: 11%;
+}
+/* line 42, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button.is-queston:not(.unlock) .mskin-m-b-mask:nth-child(2):before {
+  color: #d8dfe2;
+}
+/* line 50, ../sass/modern-forms.button.multi.scss */
+.mskin-object.mskin-multi-button.is-queston .mskin-m-b-mask:nth-child(2):before {
+  content: "?";
+  display: block;
+  position: absolute;
+  color: transparent;
+  transition: all .5s ease;
+}

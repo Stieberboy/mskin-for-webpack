@@ -1,0 +1,25 @@
+/* line 2, ../sass/modern-forms.button.scss */
+.mskin-object.mskin-button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 8px;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  font: 13.3333px Arial;
+}
+/* line 14, ../sass/modern-forms.button.scss */
+.mskin-object.mskin-button:hover {
+  border: none;
+  background-color: rgba(95, 254, 255, 0.5);
+  padding: 8px;
+}
+/* line 20, ../sass/modern-forms.button.scss */
+.mskin-object.mskin-button:active {
+  border: none;
+  background-color: #5ffeff;
+  padding: 8px;
+}

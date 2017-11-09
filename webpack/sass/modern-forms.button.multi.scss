@@ -1,0 +1,58 @@
+.mskin-object.mskin-multi-button {
+    display: inline-flex;
+    padding: 0;
+    flex-wrap: nowrap;
+
+    .mskin-m-b-mask {
+        width: 0%;
+        padding: .5rem .5rem;
+        overflow: hidden;
+        text-align: center;
+        color: transparent;
+        background-color: #607D8B;
+        display: flex;
+        justify-content: center;
+
+        &:nth-child(1) {
+            width: 100%;
+            color: black;
+            background: #E57373;
+        }
+
+        &:nth-child(2) {
+            // color: #d8dfe2
+        }
+    }
+
+    &.unlock .mskin-m-b-mask {
+        &:nth-child(1) {
+            width: 0%;
+            color: transparent;
+        }
+
+        &:nth-child(2) {
+            width: 100%;
+            color: #d8dfe2;
+        }
+    }
+
+    &.is-queston {
+        &:not( .unlock ) .mskin-m-b-mask {
+            &:nth-child( 2 ){
+                &:before {
+                    color: #d8dfe2;
+                }
+
+                width: 11%;
+            }
+        }
+
+        .mskin-m-b-mask:nth-child( 2 ):before {
+            content: "?";
+            display: block;
+            position: absolute;
+            color: transparent;
+            transition: all .5s ease;
+        }
+    }
+}
