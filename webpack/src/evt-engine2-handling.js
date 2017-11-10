@@ -3,9 +3,19 @@ class CoEvent {
         this.fn = targetFunction;
         this.scope = targetScope;
         this.param = costumParam;
+        this.enabled = true;
     }
 
     fire( paramArray=null ) {
-        this.fn( this.scope, this.param, paramArray );
+        if( this.enabled )
+            this.fn( this.scope, this.param, paramArray );
+    }
+
+    disable() {
+        this.enabled = false;
+    }
+
+    enable() {
+        this.enabled = true;
     }
 }

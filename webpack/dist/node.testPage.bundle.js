@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -134,7 +134,7 @@ class MskinMode {
 
 
 class MskinObject {
-    constructor( targetElement ) {
+    constructor( targetElement, isAsso=false ) {
 
         this.htmlElement = {
 			container: targetElement
@@ -168,6 +168,11 @@ class MskinObject {
 	hasValue( ) {
 		return this.value !== null;
 	}
+
+    eventHandle( isAsso ) {
+        if( !isAsso )
+            this.events.eventController.linkEventController( );
+    }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = MskinObject;
 
@@ -178,12 +183,79 @@ class MskinObject {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_modern_forms_object_webpack_init__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modern_forms_object_config__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modern_forms_mode__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modern_forms_object_webpack_base__ = __webpack_require__(2);
 
 
-var mskinElementInitor = new __WEBPACK_IMPORTED_MODULE_0__src_modern_forms_object_webpack_init__["a" /* MskinObjectInitor */]();
-console.log( mskinElementInitor );
+
+
+class MskinButton extends __WEBPACK_IMPORTED_MODULE_2__modern_forms_object_webpack_base__["a" /* MskinObject */] {
+    constructor( targetElement, isAsso=false ) {
+		super( targetElement, true );
+
+		// Setze das Event...
+
+/* /Child Event Verbindungen */
+		var oldScope = this;
+
+		this.events.eventHandle["onMouseOver"] = [];
+		this.events.eventHandle["onClick"] = [];
+
+/* Child Event Verbindungen */
+		this.events.eventController.addEvent(
+			new CoEvent( oldScope.triggerOnMouseOver, this, { type: "onMouseOver", controller: "evtE2controller" } ),
+			"mouseover",
+			".mskin-object"
+		);
+
+		this.events.eventController.addEvent(
+			new CoEvent( oldScope.triggerOnClick, this, { type: "onClick", controller: "evtE2controller" } ),
+			"click",
+			".mskin-object"
+		);
+
+		this.events.eventHandle.onMouseOver.push(
+			new CoEvent( function( a, evt ) { console.log( "mouseOver:", evt ); }, oldScope, { type: "onMouseOver" } )
+		);
+
+		this.events.eventHandle.onClick.push(
+			new CoEvent( function( a, evt ) { console.log( "click:", evt ); }, oldScope, { type: "onClick" } )
+		);
+
+        this.eventHandle( isAsso );
+
+/* ---- defaultEventFunction ---- */
+
+		this.events.eventFunctions["fnOnClick"] = function( evt ) {
+			console.log( "- OnClick", evt );
+
+			oldScope.triggerOnClick( oldScope, { type: "onClick", controller: "evtE2controller",  },  );
+		};
+
+		this.events.eventFunctions["fnOnMouseOver"] = function( evt ) {
+			console.log( "- OnMouseOver", evt );
+
+			/*oldScope.triggerOnMouseOver( oldScope, { type: "onMouseOver", controller: "evtE2controller",  },  );*/
+		};
+    }
+
+/* Eigene Event trigger Methoden */
+
+	triggerOnMouseOver( oldScope, evtInfo, newValue ) {
+		for( var iEvent = 0; iEvent < oldScope.events.eventHandle.onMouseOver.length; iEvent++ ) {
+			oldScope.events.eventHandle.onMouseOver[iEvent].fire( newValue );
+		}
+	}
+
+	triggerOnClick( oldScope, evtInfo, newValue ) {
+		for( var iEvent = 0; iEvent < oldScope.events.eventHandle.onClick.length; iEvent++ ) {
+			oldScope.events.eventHandle.onClick[iEvent].fire( newValue );
+		}
+	}
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = MskinButton;
+
 
 
 /***/ }),
@@ -191,9 +263,24 @@ console.log( mskinElementInitor );
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_modern_forms_object_webpack_init__ = __webpack_require__(5);
+
+
+var mskinElementInitor = new __WEBPACK_IMPORTED_MODULE_0__src_modern_forms_object_webpack_init__["a" /* MskinObjectInitor */]();
+console.log( mskinElementInitor );
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modern_forms_object_config__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modern_forms_input__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modern_forms_button__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modern_forms_input__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modern_forms_button__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modern_forms_button_multi__ = __webpack_require__(7);
+
 
 
 
@@ -227,6 +314,9 @@ class MskinObjectInitor {
                     break;
                 case "mskin-button":
                     returnInstanz = new __WEBPACK_IMPORTED_MODULE_2__modern_forms_button__["a" /* MskinButton */]( targetElement );
+                    break;
+                case "mskin-multi-button":
+                    returnInstanz = new __WEBPACK_IMPORTED_MODULE_3__modern_forms_button_multi__["a" /* MskinMultiButton */]( targetElement );
                     break;
                 case "mskin-checkbox":
                     returnInstanz = new MskinCheckbox( targetElement );
@@ -270,7 +360,7 @@ class MskinObjectInitor {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -320,7 +410,7 @@ class MskinInput extends __WEBPACK_IMPORTED_MODULE_2__modern_forms_object_webpac
         /* JS Checkout */
         jsSourceComplete ) {
 
-    		super( targetElement );
+    		super( targetElement, true );
 
             this.htmlElement["input"]  = $( "input", this.htmlElement.container )[0];
             this.htmlElement["header"] = $( ".mskin-object-header", this.htmlElement.container )[0];
@@ -384,7 +474,7 @@ class MskinInput extends __WEBPACK_IMPORTED_MODULE_2__modern_forms_object_webpac
 
     /* /Child Event Verbindungen */
 
-    		this.events.eventController.linkEventController( );
+            this.eventHandle( isAsso );
 
     		var oldScope = this;
 
@@ -452,84 +542,75 @@ class MskinInput extends __WEBPACK_IMPORTED_MODULE_2__modern_forms_object_webpac
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__modern_forms_object_config__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modern_forms_mode__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modern_forms_object_webpack_base__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modern_forms_button__ = __webpack_require__(3);
 
 
 
 
-class MskinButton extends __WEBPACK_IMPORTED_MODULE_2__modern_forms_object_webpack_base__["a" /* MskinObject */] {
+class MskinMultiButton extends __WEBPACK_IMPORTED_MODULE_2__modern_forms_button__["a" /* MskinButton */] {
     constructor( targetElement, isAsso=false ) {
 		super( targetElement, true );
 
 		// Setze das Event...
 
-/* /Child Event Verbindungen */
+    /* /Child Event Verbindungen */
 		var oldScope = this;
 
-		this.events.eventHandle["onMouseOver"] = [];
-		this.events.eventHandle["onClick"] = [];
+		this.events.eventHandle["onMouseOut"] = [];
 
-/* Child Event Verbindungen */
-		var oldScope = this;
+    /* Child Event Verbindungen */
 		this.events.eventController.addEvent(
-			new CoEvent( oldScope.triggerOnMouseOver, this, { type: "onMouseOver", controller: "evtE2controller" } ),
-			"mouseover",
+			new CoEvent( oldScope.triggerOnMouseOut, this, { type: "onMouseOut", controller: "evtE2controller" } ),
+			"mouseout",
 			".mskin-object"
 		);
 
-		this.events.eventController.addEvent(
-			new CoEvent( oldScope.triggerOnClick, this, { type: "onClick", controller: "evtE2controller" } ),
-			"click",
-			".mskin-object"
-		);
 
-		this.events.eventHandle.onMouseOver.push(
-			new CoEvent( function( a, evt ) { console.log( "mouseOver:", evt ); }, oldScope, { type: "onMouseOver" } )
-		);
+        this.events.eventHandle.onMouseOut.push(
+            new CoEvent( function( oldScope2, evt ) { console.log( "mouseOut:", oldScope2, evt ); }, oldScope, { type: "mouseOut" } )
+        );
+		this.events.eventHandle.onMouseOut.push(
+            new CoEvent( function( oldScope2, evt ) {
+                var mskinElement = $( oldScope2.htmlElement.container );
+                mskinElement.removeClass( "unlock" );
+    		}, oldScope, { type: "mouseOut" }
+        ));
 
 		this.events.eventHandle.onClick.push(
-			new CoEvent( function( a, evt ) { console.log( "click:", evt ); }, oldScope, { type: "onClick" } )
-		);
+            new CoEvent( function( oldScope2 ) {
+                var mskinElement = $( oldScope2.htmlElement.container );
+                mskinElement.addClass( "unlock" );
 
-		if( !isAsso )
-			this.events.eventController.linkEventController( );
+                var allMouseOutEvtToDisable = oldScope2.events.eventHandle.onMouseOut;
 
-/* ---- defaultEventFunction ---- */
+                for( var iEvent=0; iEvent < allMouseOutEvtToDisable.length; iEvent++ ) {
+                    allMouseOutEvtToDisable[iEvent].disable();
+                }
+                setTimeout( function() {
+                    for( var iEvent=0; iEvent < allMouseOutEvtToDisable.length; iEvent++ ) {
+                        allMouseOutEvtToDisable[iEvent].enable();
+                    }
+                }, 750 );
 
-		this.events.eventFunctions["fnOnClick"] = function( evt ) {
-			console.log( "- OnClick", evt );
+		    }, oldScope, { "type": "onClick" }
+        ) );
 
-			oldScope.triggerOnClick( oldScope, { type: "onClick", controller: "evtE2controller",  },  );
-		};
-
-		this.events.eventFunctions["fnOnMouseOver"] = function( evt ) {
-			console.log( "- OnMouseOver", evt );
-
-			/*oldScope.triggerOnMouseOver( oldScope, { type: "onMouseOver", controller: "evtE2controller",  },  );*/
-		};
+        this.eventHandle( isAsso );
     }
 
-/* Eigene Event trigger Methoden */
-
-	triggerOnMouseOver( oldScope, evtInfo, newValue ) {
-		for( var iEvent = 0; iEvent < oldScope.events.eventHandle.onMouseOver.length; iEvent++ ) {
-			oldScope.events.eventHandle.onMouseOver[iEvent].fire( newValue );
-		}
-	}
-
-	triggerOnClick( oldScope, evtInfo, newValue ) {
-		for( var iEvent = 0; iEvent < oldScope.events.eventHandle.onClick.length; iEvent++ ) {
-			oldScope.events.eventHandle.onClick[iEvent].fire( newValue );
-		}
-	}
+    triggerOnMouseOut( oldScope, evtInfo, newValue ) {
+        for( var iEvent = 0; iEvent < oldScope.events.eventHandle.onMouseOut.length; iEvent++ ) {
+            oldScope.events.eventHandle.onMouseOut[iEvent].fire( newValue );
+        }
+    }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = MskinButton;
+/* harmony export (immutable) */ __webpack_exports__["a"] = MskinMultiButton;
 
 
 

@@ -1,7 +1,7 @@
 class eventController {
     constructor( ) {
 		var oldScope = this;
-		
+
         this.events = [];
 		this.eventTyps = [];
 		this.functionFire = function( e ) {
@@ -18,8 +18,9 @@ class eventController {
 					var highestEl = (( $( e.target ).is( oldScope.events[iEvent].highestEl ) )
 									  ? $( e.target )
 									  : $( e.target ).closest( oldScope.events[iEvent].highestEl ));
-					
-                    if( highestEl !== null ) {
+
+                    if( ( highestEl.hasOwnProperty( "length") && highestEl.length > 0 )
+                    ||  ( !highestEl.hasOwnProperty( "length") && highestEl !== null ) ) {
 
 						// Prüfe ob die Aktion in dem highestEl ausgeführt wurde
 						if( highestEl.length > 0 ) {

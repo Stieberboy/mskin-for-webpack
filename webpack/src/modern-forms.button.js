@@ -15,7 +15,6 @@ export class MskinButton extends MskinObject {
 		this.events.eventHandle["onClick"] = [];
 
 /* Child Event Verbindungen */
-		var oldScope = this;
 		this.events.eventController.addEvent(
 			new CoEvent( oldScope.triggerOnMouseOver, this, { type: "onMouseOver", controller: "evtE2controller" } ),
 			"mouseover",
@@ -36,8 +35,7 @@ export class MskinButton extends MskinObject {
 			new CoEvent( function( a, evt ) { console.log( "click:", evt ); }, oldScope, { type: "onClick" } )
 		);
 
-		if( !isAsso )
-			this.events.eventController.linkEventController( );
+        this.eventHandle( isAsso );
 
 /* ---- defaultEventFunction ---- */
 

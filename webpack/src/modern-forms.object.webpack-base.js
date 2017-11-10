@@ -1,7 +1,7 @@
 import { MskinObjectConfig } from "./modern-forms.object.config";
 
 export class MskinObject {
-    constructor( targetElement ) {
+    constructor( targetElement, isAsso=false ) {
 
         this.htmlElement = {
 			container: targetElement
@@ -35,4 +35,9 @@ export class MskinObject {
 	hasValue( ) {
 		return this.value !== null;
 	}
+
+    eventHandle( isAsso ) {
+        if( !isAsso )
+            this.events.eventController.linkEventController( );
+    }
 }

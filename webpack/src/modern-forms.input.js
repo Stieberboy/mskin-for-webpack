@@ -41,7 +41,7 @@ export class MskinInput extends MskinObject {
         /* JS Checkout */
         jsSourceComplete ) {
 
-    		super( targetElement );
+    		super( targetElement, true );
 
             this.htmlElement["input"]  = $( "input", this.htmlElement.container )[0];
             this.htmlElement["header"] = $( ".mskin-object-header", this.htmlElement.container )[0];
@@ -105,7 +105,7 @@ export class MskinInput extends MskinObject {
 
     /* /Child Event Verbindungen */
 
-    		this.events.eventController.linkEventController( );
+            this.eventHandle( isAsso );
 
     		var oldScope = this;
 
