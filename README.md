@@ -50,6 +50,8 @@ Wenn man die Kombination aus beiden möchte können sie durch des deklarieren vo
 **Hinweis:**
 Dieses Projekt ist noch unvollständig und wird nicht direkt auf allen Browsern getestet.
 
+[^jquery]: [JQuery](https://jquery.com/) ist ein Framwork das sowohl Animationen als auch Methoden die das arbeiten mit CSS und HTML, in JavaScript, vereinfacht.
+
   [1]: http://math.stackexchange.com/
   [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"
   [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"
