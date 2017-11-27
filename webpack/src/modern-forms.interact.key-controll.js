@@ -1,8 +1,8 @@
 import { MskinObjectConfig } from "./modern-forms.object.config";
 import { MskinObjectInitor } from "./modern-forms.interact.key-controll.js";
 
-export class MskinKeyBordControll {
-    construct( ) {
+export class MskinKeyBoardController {
+    constructor( htmlParentSelector ) {
 		// Definiere den EventController
 		var tmp_evtController = new eventController( );
 
@@ -45,7 +45,9 @@ export class MskinKeyBordControll {
                 "k":[], "l":[], "m":[], "n":[], "o":[],
                 "p":[], "q":[], "r":[], "s":[], "t":[],
                 "u":[], "v":[], "w":[], "x":[], "y":[],
-                "z":[]
+                "z":[],
+                "1":[], "2":[], "3":[], "4":[], "5":[],
+                "6":[], "7":[], "8":[], "9":[], "0":[]
 			},
 			eventFunctions: {}
 		};
