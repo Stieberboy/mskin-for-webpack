@@ -1,69 +1,72 @@
 import { MskinObjectConfig } from "./modern-forms.object.config";
-import { MskinObjectInitor } from "./modern-forms.interact.key-controll.js";
+import { MskinObjectStatics } from "./modern-forms.statics.js";
 
 export class MskinKeyBoardController {
     constructor( htmlParentSelector ) {
-		// Definiere den EventController
-		var tmp_evtController = new eventController( );
+        var oldScope = this;
 
-		// @todo Verlinke und setze somit den EventController inkraft
-		//evtController.linkEventController( );
-        this.events.eventController.linkEventController( );
+		this.eventController = new eventController( );
 
-		this.eventController = tmp_evtControlle;
-		this.eventHandle: {
-                // Arrow Pad
-                "arrowTop": [],
-                "arrowRight": [],
-                "arrowBottom": [],
-                "arrowLeft": [],
+		this.eventHandle = {};
 
-                // Num Pad
-                "numSlash": [],
-                "numMulti": [],
-                "numMinus": [],
-                "numPlus": [],
-                "numEnter": [],
+        for( var keyName in MskinObjectStatics.module.keyBoardController.keyMap ) {
+            oldScope.eventHandle[keyName] = [];
+        }
 
-                // Command Keys
-                "cmdEscape": [],
-                "cmdTabulator": [],
-                "cmdCapslock": [],
-                "cmdShiftLeft": [],
-                "cmdCtrlLeft": [],
-                "cmdAltLeft": [],
-                "cmdAltRight": [],
-                "cmdContextMenu": [],
-                "cmdControllRight": [],
-                "cmdShiftRechts": [],
-                "cmdEnter": [],
-                "cmdAltLeft": [],
 
-                // Main Keys 26
-                "a":[], "b":[], "c":[], "d":[], "e":[],
-                "f":[], "g":[], "h":[], "i":[], "j":[],
-                "k":[], "l":[], "m":[], "n":[], "o":[],
-                "p":[], "q":[], "r":[], "s":[], "t":[],
-                "u":[], "v":[], "w":[], "x":[], "y":[],
-                "z":[],
-                "1":[], "2":[], "3":[], "4":[], "5":[],
-                "6":[], "7":[], "8":[], "9":[], "0":[]
-			},
-			eventFunctions: {}
-		};
+		this.eventController.addEvent(
+			new CoEvent( oldScope.triggerOnPressKey, oldScope, { type: "onKeyPress", controller: "evtE2controller" } ),
+			"keypress",
+			htmlParentSelector
+		);
 
         if( MskinObjectConfig.debug.consolePrintEventTrigger ) {
             var oldScope = this;
 
             for( var eventName in this.eventHandle ) {
                 var eventOnText = "onKeyPress" + eventName.charAt(0).toUpperCase() + eventName.slice(1);
-
-        		this.eventController.addEvent(
-        			new CoEvent( oldScope.triggerOnClickTextbox, oldScope, { type: eventOnText, controller: "evtE2controller" } ),
-        			"keypress",
-        			".mskin-object-input"
-        		);
+                this.eventHandle[eventName].push(
+                    new CoEvent( function( oldScope, evtInfo, onPressKeyEvent ) {
+                        console.log( "Tastendruck! => " + onPressKeyEvent.keyID + " - " + onPressKeyEvent.keyName );
+                    }, oldScope, { type: "onKeyPress", controller: "evtE2controller", debugMsg:true },
+                    "KeyPress",
+                    "onKeyPress" )
+                );
             }
         }
+
+        this.eventController.linkEventController( );
+    }
+
+    triggerOnPressKey( oldScope, evtInfo, onPressKeyEvent ) {
+        var keyID = onPressKeyEvent.keyCode;
+        var keyMapByIds = oldScope.getKeyMapById();
+
+        if( keyMapByIds.hasOwnProperty( keyID ) ) {
+            var fnEventFieldName = keyMapByIds[keyID];
+            var allEventOfKey = oldScope.eventHandle[fnEventFieldName];
+
+            for( var iEventOfKey=0; iEventOfKey < allEventOfKey.length; iEventOfKey++ ) {
+                allEventOfKey[iEventOfKey].fire( { "keyID": keyID, "keyName":fnEventFieldName });
+            }
+        }
+        else if( MskinObjectConfig.debug.consolePrintEventTrigger ) {
+            console.warn( "Nicht gelisteter keyCode ausgelöst! onKeyPress => keyCode: " + keyID );
+        }
+    }
+
+    getKeyMapByName() {
+        return MskinObjectStatics.module.keyBoardController.keyMap;
+    }
+
+    getKeyMapById() {
+        var tmpReturn = {};
+        var configKeyMap = MskinObjectStatics.module.keyBoardController.keyMap;
+
+        for( var keyName in configKeyMap ) {
+            tmpReturn[ configKeyMap[keyName] ] = keyName;
+        }
+
+        return tmpReturn;
     }
 }
